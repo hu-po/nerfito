@@ -33,6 +33,29 @@ class Volume:
     resolution: np.ndarray
     position: np.ndarray = np.array([0, 0, 0])
 
+    def normalize_position(self, position: np.ndarray) -> np.ndarray:
+        """Normalize a position in world space to a position in volume space."""
+        # Calculate the volume's center point in world space
+        volume_center = self.position + self.size / 2
+
+        # Calculate the position relative to the volume's center point
+        relative_position = position - volume_center
+
+        # Normalize the position
+        normalized_position = relative_position / self.size
+
+        return normalized_position
+        
+@dataclass
+class Point:
+    """Dataclass for a point object."""
+    # Inputs to neural net
+    position: np.ndarray
+    view_angle: np.ndarray
+    # Outputs from neural net
+    color: np.ndarray
+    opacity: float
+
 
 def get_rays(camera: Camera) -> List[Ray]:
     """Get a list of rays for a given camera."""
@@ -80,11 +103,64 @@ def get_rays(camera: Camera) -> List[Ray]:
 
     return rays
 
-# ray sampling
+# Given a Ray and a Volume, sample N points along the ray that are within the volume
+def sample_points_in_ray(
+    ray: Ray,
+    volume: Volume,
+    num_samples: int = 6,
+) -> List[Point]:
 
-# volume sampling
+    # Generate a list of evenly spaced samples along the ray
+    samples = np.linspace(0, 1, num_samples)
 
-# volume rendering
+    # Initialize an empty list to store points that are within the volume
+    points = []
+
+    # Iterate through each sample
+    for sample in samples:
+
+        # TODO: This should be more complicated, it needs to find N points that are within the volume
+
+        # Calculate the point along the ray at this sample
+        point = ray.origin + sample * ray.direction
+
+        # Check if the point is within the volume
+        within_x = volume.position[0] <= point[0] < volume.position[0] + volume.size[0]
+        within_y = volume.position[1] <= point[1] < volume.position[1] + volume.size[1]
+        within_z = volume.position[2] <= point[2] < volume.position[2] + volume.size[2]
+
+        # If the point is within the volume in all dimensions, add it to the list
+        if within_x and within_y and within_z:
+            points.append(point)
+
+        # Calculate the normalized position of the point in the volume
+
+        # Calculate the normalized view direction of the point in the volume
+        
+        # Add the point to the list
+
+    return points
+
+def get_points(camera: Camera, volume: Volume) -> List[Point]:
+    """Get a list of points for a given camera and volume."""
+
+    # Get a list of rays for the given camera
+    rays = get_rays(camera)
+
+    # Initialize an empty list to store the points
+    points = []
+
+    # Iterate through each ray
+    for ray in rays:
+
+        # Sample points along the ray that are within the volume
+        points_in_ray = sample_points_in_ray(ray, volume)
+
+        # Add the points to the list
+        points.extend(points_in_ray)
+
+    return points
+
 
 if __name__ == "__main__":
     

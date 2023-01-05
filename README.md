@@ -61,9 +61,9 @@ The main components for our NeRF implementation are:
 - Evaluation Code
 
 Neural Network
-- Inputs: ray direction, ray origin
-    - Ray direction: direction of the ray from the camera (theta, phi)
-    - Ray origin: position of the camera (x, y, z)
+- Inputs: Point within the volume, and the view direction of that point (in world space)
+    - Point within volume: (x, y, z)
+    - View direction: (theta, phi)
 - Outputs: color, opacity
     - Color: RGB color of the pixel
     - Opacity: how much light is absorbed by the object 
