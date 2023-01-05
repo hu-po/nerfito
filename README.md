@@ -34,10 +34,55 @@ python3
 >>> torch.cuda.is_available()
 ```
 
+Save the dependencies in a file:
+
+```
+pip3 freeze --local > requirements.txt
+```
+
 ## Architechture
 
 The current state of the art implementations of NeRF are:
 - [nerfstudio](https://github.com/nerfstudio-project/nerfstudio)
 - [instant-ngp](https://github.com/NVlabs/instant-ngp)
 
+The main components for our NeRF implementation are:
 
+- Volume of space that is voxelized
+- Camera position and orientation
+- Calculating the ray for each pixel
+- Calculating the color and opacity at a point on each ray
+- Neural network to predict the color and opacity
+- Rendering the image from a camera position
+- Loss function for rendered image and ground truth image
+- Dataset loader for training and testing
+- Dataset of images and camera positions
+- Training/Testing loops
+- Evaluation Code
+
+Neural Network
+- Inputs: ray direction, ray origin
+    - Ray direction: direction of the ray from the camera (theta, phi)
+    - Ray origin: position of the camera (x, y, z)
+- Outputs: color, opacity
+    - Color: RGB color of the pixel
+    - Opacity: how much light is absorbed by the object 
+- Architecture: 3 layers of 256 neurons each
+
+
+model.py
+- model class
+- forward function
+- loss function
+
+utils.py
+- ray sampling
+- volume sampling
+- volume rendering
+
+train.py
+- train loop
+- test loop
+
+eval.py
+- generate one image from a camera position
