@@ -22,7 +22,9 @@ scipy==1.10.0
 six==1.16.0
 torch==1.13.1+cu116
 torchaudio==0.13.1+cu116
+torchtyping==0.1.4
 torchvision==0.14.1+cu116
 tqdm==4.64.1
+typeguard==2.13.3
 typing_extensions==4.4.0
 urllib3==1.26.13
