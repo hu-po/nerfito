@@ -46,6 +46,8 @@ pip3 freeze --local > requirements.txt
 
 Create a synthetic dataset of images and camera position using Blender.
 
+The dataset will contain 100 images of the same object from 100 different camera positions.
+
 
 
 ## Code Stream 1 Notes (01-05-2023)
