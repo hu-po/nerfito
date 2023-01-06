@@ -1,6 +1,6 @@
 # NeRF-ito
 
-A tiny minimal implementation of NeRF, you can find the code stream [here](https://youtu.be/fbpNR-qnOrI).
+A tiny minimal implementation of NeRF, you can find the code streams [here](https://youtu.be/fbpNR-qnOrI).
 
 
 ## Dependencies
@@ -40,7 +40,17 @@ Save the dependencies in a file:
 pip3 freeze --local > requirements.txt
 ```
 
-## Architechture
+## Code Stream 2 Notes (01-05-2023)
+
+[Stream link](https://youtu.be/uZEXtGBRw1w)
+
+Create a synthetic dataset of images and camera position using Blender.
+
+
+
+## Code Stream 1 Notes (01-05-2023)
+
+[Stream link](https://youtu.be/fbpNR-qnOrI)
 
 The current state of the art implementations of NeRF are:
 - [nerfstudio](https://github.com/nerfstudio-project/nerfstudio)
