@@ -1,11 +1,11 @@
 """ Evaluates a trained model, generating an image."""
 
 import torch
-import utils
+import geometry
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
-    
+
     # Choose the model checkpoint
     # Choose a camera position
     # Choose a camera direction

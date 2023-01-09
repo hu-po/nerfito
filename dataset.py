@@ -24,4 +24,7 @@ class SyntheticDataset(torch.utils.data.Dataset):
         match = self.pattern.search(file)
         theta = float(match.group(1))
         phi = float(match.group(2))
+
+        # TODO: A single ray is the input, not the whole image
+        
         return image, theta, phi

@@ -2,7 +2,7 @@
 
 import torch
 
-from data import SyntheticDataset
+from dataset import SyntheticDataset
 from model import NeRF
 
 def train(
@@ -16,6 +16,8 @@ def train(
     lr: float = 0.001,
     batch_size: int = 2,
 ) -> float:
+
+    # TODO: Batch size is per-ray
 
     # Load the dataset
     train_dataset = SyntheticDataset(root=train_dataset_path)
@@ -42,6 +44,9 @@ def train(
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
     # Create the loss function
+
+    #TODO: Difference between ground truth pixel value and 
+    #      sum of predicted pixel value is the loss
     loss_fn
 
     # Keep track of best loss so far

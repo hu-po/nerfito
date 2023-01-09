@@ -40,6 +40,14 @@ Save the dependencies in a file:
 pip3 freeze --local > requirements.txt
 ```
 
+## Code Stream 3 Notes (01-10-2023)
+
+[Stream link]()
+
+- ray marching
+- batching inference
+
+
 ## Code Stream 2 Notes (01-05-2023)
 
 [Stream link](https://youtu.be/uZEXtGBRw1w)
