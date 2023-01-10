@@ -42,7 +42,7 @@ pip3 freeze --local > requirements.txt
 
 ## Code Stream 3 Notes (01-10-2023)
 
-[Stream link]()
+[Stream link](https://youtu.be/D8IgmuEdqmA)
 
 - ray marching
 - batching inference
