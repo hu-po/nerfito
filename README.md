@@ -40,12 +40,19 @@ Save the dependencies in a file:
 pip3 freeze --local > requirements.txt
 ```
 
+Install the dependencies locally with this command:
+
+```
+pip install -r requirements.txt
+```
+
 ## Code Stream 3 Notes (01-10-2023)
 
 [Stream link](https://youtu.be/D8IgmuEdqmA)
 
 - ray marching
-- batching inference
+- batching inference and training
+- training loop
 
 
 ## Code Stream 2 Notes (01-05-2023)
